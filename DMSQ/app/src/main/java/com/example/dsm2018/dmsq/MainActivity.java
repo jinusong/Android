@@ -7,8 +7,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class MainActivity extends AppCompatActivity {
     ViewPager vp;
+
+    long now = System.currentTimeMillis();
+    Date date = new Date(now);
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    String stringDate = sdf.format(date);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         public android.support.v4.app.Fragment getItem(int position) {
             switch (position){
                 case 0:
-                    return new fragment_meal();
+                    return new Fragment_meal(stringDate);
             }
             return null;
         }
