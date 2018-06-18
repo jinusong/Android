@@ -2,24 +2,14 @@ package com.example.dsm2018.dmsq;
 
 import android.util.Log;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
-import java.util.Date;
-
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class Connector {
-    Retrofit retrofit;
-    ApiService apiService;
-
     String breakfast;
     String lunch;
     String dinner;
@@ -37,46 +27,47 @@ public class Connector {
     }
 
 
-    private void setContentView(int fragment_meal) {
-    }
-
-
     public void init(String date) {
+        String baseUrl = "http://dsm2015.cafe24.com/";
+        Retrofit client = new Retrofit.Builder().baseUrl(baseUrl).addConverterFactory(GsonConverterFactory.create()).build();
 
-        retrofit = new Retrofit.Builder().baseUrl(ApiService.API_URL).build();
-        apiService = retrofit.create(ApiService.class);
+        ApiService mTestService = client.create(ApiService.class);
 
-        //get
-        Call<ResponseBody> comment = apiService.getCommentStr(date);
-
-        Log.d("start Retrofit", date);
-        comment.enqueue(new Callback<ResponseBody>() {
+        Call<model> call = mTestService.getAppinfo(date);
+        Log.v("date", date);
+        call.enqueue(new Callback<model>() {
             @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                try {
-                    String result = response.body().string();
-                    Log.v("06-17", result);
-                    try {
-                        JSONArray jsonArray = new JSONArray(result);
+            public void onResponse(Call<model> call, Response<model> response) {
 
-                        for (int i = 0; i < jsonArray.length(); i++) {
-                            JSONObject jsonObject = jsonArray.getJSONObject(i);
-                            breakfast = jsonObject.getString("breakfast");
-                            lunch = jsonObject.getString("lunch");
-                            dinner = jsonObject.getString("dinner");
-                            Log.v("06-17", jsonObject.toString());
-                        }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
+                if (response.isSuccessful()) {
+                    Log.v("success", "우오아와와와ㅗ아ㅗ아ㅘ와와오");
+                    model body = response.body();
+                    for(int i = 0; i<body.breakfast.toArray().length; i++)
+                    {
+                        breakfast = body.breakfast.get((i));
+                        getBreakfast();
                     }
-                } catch (IOException e) {
-                    e.printStackTrace();
+                    for(int i = 0; i<body.lunch.toArray().length; i++)
+                    {
+                        lunch = body.lunch.get((i));
+                        getLunch();
+                    }
+                    for(int i = 0; i<body.dinner.toArray().length; i++)
+                    {
+                        dinner = body.dinner.get((i));
+                        getDinner();
+                    }
+
+                }else{
+                    Log.v("errorBody()", response.errorBody().toString());
                 }
             }
 
+
             @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
-                Log.d("fail", t.toString());
+            public void onFailure(Call<model> call, Throwable t) {
+                Log.v("오류 발생", t.getMessage());
+                t.printStackTrace();
             }
         });
     }

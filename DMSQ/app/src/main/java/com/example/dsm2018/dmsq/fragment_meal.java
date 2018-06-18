@@ -5,12 +5,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.Date;
 
 public class Fragment_meal extends android.support.v4.app.Fragment {
 
     String date;
+
 
     public Fragment_meal() {
     }
@@ -36,6 +38,9 @@ public class Fragment_meal extends android.support.v4.app.Fragment {
     public void getValue() {
         Connector connector = new Connector();
         connector.init(date);
+        TextView printbreakfast;
+        printbreakfast= (TextView) findViewById(R.id.breakfast_meal_content);
+        printbreakfast.setText(getbreakfast.toString());
     }
 
 }
