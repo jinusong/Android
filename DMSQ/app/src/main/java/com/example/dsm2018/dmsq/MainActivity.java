@@ -7,17 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 public class MainActivity extends AppCompatActivity {
     ViewPager vp;
 
-    long now = System.currentTimeMillis();
-    Date date = new Date(now);
-    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-    String stringDate = sdf.format(date);
-
+    DateAdder date = new DateAdder();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,13 +35,31 @@ public class MainActivity extends AppCompatActivity {
         public android.support.v4.app.Fragment getItem(int position) {
             switch (position){
                 case 0:
-                    return new Fragment_meal(stringDate);
+                    return new Fragment_meal(date.Date(0));
+                case 1:
+                    return new Fragment_meal1(date.Date(1));
+                case 2:
+                    return new Fragment_meal2(date.Date(2));
+                case 3:
+                    return new Fragment_meal3(date.Date(3));
+                case 4:
+                    return new Fragment_meal4(date.Date(4));
+                case 5:
+                    return new Fragment_meal5(date.Date(5));
+                case 6:
+                    return new Fragment_meal6(date.Date(6));
+                case 7:
+                    return new Fragment_meal7(date.Date(7));
+                case 8:
+                    return new Fragment_meal8(date.Date(8));
+                case 9:
+                    return new Fragment_meal9(date.Date(9));
             }
             return null;
         }
         @Override
         public int getCount() {
-            return 1;
+            return 10;
         }
     }
 }

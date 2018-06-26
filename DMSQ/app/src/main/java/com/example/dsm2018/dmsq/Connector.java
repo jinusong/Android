@@ -2,6 +2,8 @@ package com.example.dsm2018.dmsq;
 
 import android.util.Log;
 
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -10,19 +12,19 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class Connector {
-    String breakfast;
-    String lunch;
-    String dinner;
+    static String breakfast;
+    static String lunch;
+    static String dinner;
 
-    public String getBreakfast() {
+    public static String getBreakfast() {
         return breakfast;
     }
 
-    public String getLunch() {
+    public static String getLunch() {
         return lunch;
     }
 
-    public String getDinner() {
+    public static String getDinner() {
         return dinner;
     }
 
@@ -42,22 +44,9 @@ public class Connector {
                 if (response.isSuccessful()) {
                     Log.v("success", "우오아와와와ㅗ아ㅗ아ㅘ와와오");
                     model body = response.body();
-                    for(int i = 0; i<body.breakfast.toArray().length; i++)
-                    {
-                        breakfast = body.breakfast.get((i));
-                        getBreakfast();
-                    }
-                    for(int i = 0; i<body.lunch.toArray().length; i++)
-                    {
-                        lunch = body.lunch.get((i));
-                        getLunch();
-                    }
-                    for(int i = 0; i<body.dinner.toArray().length; i++)
-                    {
-                        dinner = body.dinner.get((i));
-                        getDinner();
-                    }
-
+                    breakfast = body.breakfast.toString();
+                    lunch = body.lunch.toString();
+                    dinner = body.dinner.toString();
                 }else{
                     Log.v("errorBody()", response.errorBody().toString());
                 }

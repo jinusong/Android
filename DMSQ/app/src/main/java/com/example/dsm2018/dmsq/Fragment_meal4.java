@@ -1,26 +1,21 @@
 package com.example.dsm2018.dmsq;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.util.List;
-
-
-public class Fragment_meal extends android.support.v4.app.Fragment {
+public class Fragment_meal4 extends android.support.v4.app.Fragment{
 
     String date;
 
-    public Fragment_meal() {
+    public Fragment_meal4() {
     }
 
     @SuppressLint("ValidFragment")
-    public Fragment_meal(String date) {
+    public Fragment_meal4(String date) {
         this.date = date;
     }
 
@@ -33,7 +28,7 @@ public class Fragment_meal extends android.support.v4.app.Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         getValue();
-        View view = (View) inflater.inflate(R.layout.fragment_meal, container, false);
+        View view = (View) inflater.inflate(R.layout.fragment_meal4, container, false);
         TextView breakfasttextview = (TextView) view.findViewById(R.id.breakfast_meal_content);
         breakfasttextview.setText(Connector.getBreakfast());
         TextView lunchtextview = (TextView) view.findViewById(R.id.lunch_meal_content);
@@ -41,6 +36,7 @@ public class Fragment_meal extends android.support.v4.app.Fragment {
         TextView dinnertextview = (TextView) view.findViewById(R.id.dinner_meal_content);
         dinnertextview.setText(Connector.getDinner());
         return view;
+
     }
 
     public void getValue() {

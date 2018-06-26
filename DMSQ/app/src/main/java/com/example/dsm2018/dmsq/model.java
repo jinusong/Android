@@ -18,5 +18,3 @@ public class model {
     List<String> breakfast = new ArrayList<String>();
     public List<String> getBreakfast() {return breakfast;}
 }
-
-//List 알아보기, ArrayList 등 컬렉션
