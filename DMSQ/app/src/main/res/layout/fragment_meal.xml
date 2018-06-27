@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-xmlns:android="http://schemas.android.com/apk/res/android"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:background="@drawable/rounded">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/rounded">
 
     <RelativeLayout
 
@@ -17,7 +17,6 @@ android:background="@drawable/rounded">
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="30dp"
-            android:text="월요일"
             android:textColor="#AAAAAA"
             android:textSize="30dp"
             android:textStyle="bold" />
@@ -29,7 +28,6 @@ android:background="@drawable/rounded">
             android:layout_alignBaseline="@id/week_meal_content"
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@id/week_meal_content"
-            android:text="6월 17일"
             android:textColor="#AAAAAA"
             android:textSize="15dp" />
 
@@ -39,7 +37,6 @@ android:background="@drawable/rounded">
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_margin="20dp"
-            android:text="2018"
             android:textColor="#AAAAAA"
             android:textSize="15dp" />
 
@@ -113,7 +110,7 @@ android:background="@drawable/rounded">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
+                        android:layout_marginLeft="20dp"
                         android:text="점심"
                         android:textColor="#000000"
                         android:textSize="25dp"

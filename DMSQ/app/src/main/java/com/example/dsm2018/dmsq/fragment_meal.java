@@ -15,13 +15,19 @@ import java.util.List;
 public class Fragment_meal extends android.support.v4.app.Fragment {
 
     String date;
+    String year;
+    String month_day;
+    String week_of_day;
 
     public Fragment_meal() {
     }
 
     @SuppressLint("ValidFragment")
-    public Fragment_meal(String date) {
+    public Fragment_meal(String date, String year, String month_day, String week_of_day) {
         this.date = date;
+        this.year = year;
+        this.month_day = month_day;
+        this.week_of_day = week_of_day;
     }
 
 
@@ -40,6 +46,14 @@ public class Fragment_meal extends android.support.v4.app.Fragment {
         lunchtextview.setText(Connector.getLunch());
         TextView dinnertextview = (TextView) view.findViewById(R.id.dinner_meal_content);
         dinnertextview.setText(Connector.getDinner());
+        TextView month_daytextview = (TextView) view.findViewById(R.id.text_meal_content_date);
+        month_daytextview.setText(month_day);
+        TextView yeartextview = (TextView) view.findViewById(R.id.text_meal_content_year);
+        yeartextview.setText(year);
+        TextView week_of_daytextview = (TextView) view.findViewById(R.id.week_meal_content);
+        week_of_daytextview.setText(week_of_day);
+
+
         return view;
     }
 
