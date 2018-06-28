@@ -1,5 +1,7 @@
 package com.example.dsm2018.dmsq;
 
+
+
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -9,6 +11,7 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
     ViewPager vp;
+    int Max_Page = 7;
 
     DateAdder date = new DateAdder();
     @Override
@@ -33,33 +36,37 @@ public class MainActivity extends AppCompatActivity {
         }
         @Override
         public android.support.v4.app.Fragment getItem(int position) {
+            Fragment_meal fragment_meal = new Fragment_meal(date.Date(position), date.Year(), date.Month_day(position), date.Week_of_Day(position));
+            Fragment_meal1 fragment_meal1 = new Fragment_meal1(date.Date(position), date.Year(), date.Month_day(position), date.Week_of_Day(position));
+            Fragment_meal2 fragment_meal2 = new Fragment_meal2(date.Date(position), date.Year(), date.Month_day(position), date.Week_of_Day(position));
+            Fragment_meal3 fragment_meal3 = new Fragment_meal3(date.Date(position), date.Year(), date.Month_day(position), date.Week_of_Day(position));
+            Fragment_meal4 fragment_meal4 = new Fragment_meal4(date.Date(position), date.Year(), date.Month_day(position), date.Week_of_Day(position));
+            Fragment_meal5 fragment_meal5 = new Fragment_meal5(date.Date(position), date.Year(), date.Month_day(position), date.Week_of_Day(position));
+            Fragment_meal6 fragment_meal6 = new Fragment_meal6(date.Date(position), date.Year(), date.Month_day(position), date.Week_of_Day(position));
+            if(position<0 || Max_Page<=position)
+                return null;
+
             switch (position){
                 case 0:
-                    return new Fragment_meal(date.Date(0), date.Year(), date.Month_day(0), date.Week_of_Day(0));
+                    return fragment_meal;
                 case 1:
-                    return new Fragment_meal1(date.Date(1), date.Year(), date.Month_day(1), date.Week_of_Day(1));
+                    return fragment_meal1;
                 case 2:
-                    return new Fragment_meal2(date.Date(2), date.Year(), date.Month_day(2), date.Week_of_Day(2));
+                    return fragment_meal2;
                 case 3:
-                    return new Fragment_meal3(date.Date(3), date.Year(), date.Month_day(3), date.Week_of_Day(3));
+                    return fragment_meal3;
                 case 4:
-                    return new Fragment_meal4(date.Date(4), date.Year(), date.Month_day(4), date.Week_of_Day(4));
+                    return fragment_meal4;
                 case 5:
-                    return new Fragment_meal5(date.Date(5), date.Year(), date.Month_day(5), date.Week_of_Day(5));
+                    return fragment_meal5;
                 case 6:
-                    return new Fragment_meal6(date.Date(6), date.Year(), date.Month_day(6), date.Week_of_Day(6));
-                case 7:
-                    return new Fragment_meal7(date.Date(7), date.Year(), date.Month_day(7), date.Week_of_Day(7));
-                case 8:
-                    return new Fragment_meal8(date.Date(8), date.Year(), date.Month_day(8), date.Week_of_Day(8));
-                case 9:
-                    return new Fragment_meal9(date.Date(9), date.Year(), date.Month_day(9), date.Week_of_Day(9));
+                    return fragment_meal6;
             }
             return null;
         }
         @Override
         public int getCount() {
-            return 10;
+            return Max_Page;
         }
     }
 }

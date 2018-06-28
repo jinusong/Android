@@ -11,11 +11,11 @@ public class DateAdder {
     String Day=null;
     long now = System.currentTimeMillis();
     Date date = new Date(now);
-    SimpleDateFormat ymd = new SimpleDateFormat("yyyy-MM-DD");
+    SimpleDateFormat ymd = new SimpleDateFormat("yyyy-MM-dd");
     SimpleDateFormat year = new SimpleDateFormat("yyyy");
     SimpleDateFormat month_day = new SimpleDateFormat("MM월 dd일");
     Calendar calendar = Calendar.getInstance();
-    public void setTime(){ calendar.setTime(date); }
+    public void setTime() { calendar.setTime(date); }
 
     public String Date(int i) {
         setTime();

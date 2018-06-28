@@ -7,15 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+@SuppressLint("ValidFragment")
 public class Fragment_meal1 extends android.support.v4.app.Fragment{
 
     String date;
     String year;
     String month_day;
     String week_of_day;
-
-    public Fragment_meal1() {
-    }
 
     @SuppressLint("ValidFragment")
     public Fragment_meal1(String date, String year, String month_day, String week_of_day) {

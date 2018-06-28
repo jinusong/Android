@@ -7,20 +7,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.List;
 
 
+@SuppressLint("ValidFragment")
 public class Fragment_meal extends android.support.v4.app.Fragment {
 
     String date;
     String year;
     String month_day;
     String week_of_day;
-
-    public Fragment_meal() {
-    }
 
     @SuppressLint("ValidFragment")
     public Fragment_meal(String date, String year, String month_day, String week_of_day) {
@@ -39,18 +38,18 @@ public class Fragment_meal extends android.support.v4.app.Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         getValue();
-        View view = (View) inflater.inflate(R.layout.fragment_meal, container, false);
-        TextView breakfasttextview = (TextView) view.findViewById(R.id.breakfast_meal_content);
+        View view = inflater.inflate(R.layout.fragment_meal, container, false);
+        TextView breakfasttextview = view.findViewById(R.id.breakfast_meal_content);
         breakfasttextview.setText(Connector.getBreakfast());
-        TextView lunchtextview = (TextView) view.findViewById(R.id.lunch_meal_content);
+        TextView lunchtextview =view.findViewById(R.id.lunch_meal_content);
         lunchtextview.setText(Connector.getLunch());
-        TextView dinnertextview = (TextView) view.findViewById(R.id.dinner_meal_content);
+        TextView dinnertextview = view.findViewById(R.id.dinner_meal_content);
         dinnertextview.setText(Connector.getDinner());
-        TextView month_daytextview = (TextView) view.findViewById(R.id.text_meal_content_date);
+        TextView month_daytextview = view.findViewById(R.id.text_meal_content_date);
         month_daytextview.setText(month_day);
-        TextView yeartextview = (TextView) view.findViewById(R.id.text_meal_content_year);
+        TextView yeartextview =view.findViewById(R.id.text_meal_content_year);
         yeartextview.setText(year);
-        TextView week_of_daytextview = (TextView) view.findViewById(R.id.week_meal_content);
+        TextView week_of_daytextview = view.findViewById(R.id.week_meal_content);
         week_of_daytextview.setText(week_of_day);
 
 

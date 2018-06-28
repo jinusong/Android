@@ -13,7 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Connector {
     static String breakfast;
-    static String lunch;
+    static String lunch;                                               //static을 이용하여 동적이 아닌 정적 변수 선언
     static String dinner;
 
     public static String getBreakfast() {
@@ -22,7 +22,7 @@ public class Connector {
 
     public static String getLunch() {
         return lunch;
-    }
+    }               //static을 이용하여 정적 메소드
 
     public static String getDinner() {
         return dinner;
