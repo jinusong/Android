@@ -84,7 +84,7 @@
                     android:layout_marginRight="30dp"
                     android:layout_marginTop="10dp"
                     android:layout_weight="1"
-                    android:textSize="20dp" />
+                    android:textSize="17dp" />
 
             </LinearLayout>
 
@@ -126,7 +126,7 @@
                     android:layout_marginRight="30dp"
                     android:layout_marginTop="10dp"
                     android:layout_weight="1"
-                    android:textSize="20dp" />
+                    android:textSize="17dp" />
 
             </LinearLayout>
 
@@ -168,7 +168,7 @@
                     android:layout_marginRight="30dp"
                     android:layout_marginTop="10dp"
                     android:layout_weight="1"
-                    android:textSize="20dp" />
+                    android:textSize="17dp" />
             </LinearLayout>
         </LinearLayout>
     </RelativeLayout>
