@@ -11,9 +11,9 @@ public class DateAdder {
     String Day=null;
     long now = System.currentTimeMillis();                  //지금 시간 가져오기
     Date date = new Date(now);
-    SimpleDateFormat ymd = new SimpleDateFormat("yyyy-MM-dd");      //ymd에 date를 yyyy-MM-dd 형식으로 설정
-    SimpleDateFormat year = new SimpleDateFormat("yyyy");            //year에 date를 yyyy 형식으로 설정
-    SimpleDateFormat month_day = new SimpleDateFormat("MM월 dd일"); //month_day에 MM월 dd일 형식으로 설정
+    SimpleDateFormat ymd = new SimpleDateFormat("yyyy-MM-dd");      //ymd 에 date 를 yyyy-MM-dd 형식으로 설정
+    SimpleDateFormat year = new SimpleDateFormat("yyyy");            //year 에 date 를 yyyy 형식으로 설정
+    SimpleDateFormat month_day = new SimpleDateFormat("MM월 dd일"); //month_day 에 date 를 MM월 dd일 형식으로 설정
     Calendar calendar = Calendar.getInstance();
     public void setTime() { calendar.setTime(date); }           //현재시간 set 하기
 

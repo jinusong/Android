@@ -1,9 +1,6 @@
 package com.example.dsm2018.dmsq;
 
 import android.util.Log;
-
-import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -12,9 +9,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class Connector {
-    static String breakfast=null;
-    static String lunch=null;                                               //static 을 이용하여 동적이 아닌 정적 변수 선언
-    static String dinner=null;
+    static String breakfast;
+    static String lunch;                                               //static 을 이용하여 동적이 아닌 정적 변수 선언
+    static String dinner;
 
     public static String getBreakfast() {
         return breakfast;
@@ -30,13 +27,14 @@ public class Connector {
 
 
     public void init(String date) {
-        String baseUrl = "http://dsm2015.cafe24.com/";          //값을 가져올 baseUrl 설정
+        String baseUrl = "http://dsm2015.cafe24.com/v2/";          //값을 가져올 baseUrl 설정
         Retrofit client = new Retrofit.Builder().baseUrl(baseUrl).addConverterFactory(GsonConverterFactory.create()).build();   //Retrofit client 객체 생성
 
         ApiService mTestService = client.create(ApiService.class);  //ApiService 가져옴
 
         Call<model> call = mTestService.getAppinfo(date);           //ApiService 에 받아온 date(날짜)양식 입력
         Log.v("date", date);                                 //날짜 Log.v로 확인
+
         call.enqueue(new Callback<model>() {
             @Override
             public void onResponse(Call<model> call, Response<model> response) {
@@ -54,14 +52,14 @@ public class Connector {
                     dinner = dinner.replace("[",  "");
                     dinner = dinner.replace("]",  "");
                 }else{
-                    Log.v("errorBody()", response.errorBody().toString());  //error 가 났다면 error 가 난 부분 Log.v표시
+                    Log.e("errorBody()", response.errorBody().toString());  //error 가 났다면 error 가 난 부분 Log.e표시
                 }
             }
 
 
             @Override
             public void onFailure(Call<model> call, Throwable t) {
-                Log.v("오류 발생", t.getMessage());             //오류나면 메시지 Log.v에서 확인
+                Log.e("오류 발생", t.getMessage());             //오류나면 메시지 Log.e에서 확인
                 t.printStackTrace();
             }
         });

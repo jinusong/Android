@@ -1,16 +1,11 @@
 package com.example.dsm2018.dmsq;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 import android.widget.TextView;
-
-import java.util.List;
 
 
 @SuppressLint("ValidFragment")
@@ -35,7 +30,7 @@ public class Fragment_meal extends android.support.v4.app.Fragment {
         super.onCreate(savedInstanceState);
     }
 
-    @Override       //어노테이션 메소드 수정
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         getValue();
         View view = inflater.inflate(R.layout.fragment_meal, container, false);     //전체 View
@@ -58,7 +53,7 @@ public class Fragment_meal extends android.support.v4.app.Fragment {
 
     public void getValue() {
         Connector connector = new Connector();      //Connector 객체 생성
-        connector.init(date);                   //init에 date 전달
+        connector.init(date);                   //init 에 date 전달
     }
 
 }

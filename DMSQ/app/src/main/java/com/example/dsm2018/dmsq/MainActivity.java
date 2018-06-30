@@ -14,7 +14,14 @@ public class MainActivity extends AppCompatActivity {
     int Max_Page = 7;   //총 1주일 7페이지
 
     DateAdder date = new DateAdder();   //DateAdder 객체
-    @Override
+    Fragment_meal fragment_meal= new Fragment_meal(date.Date(0), date.Year(), date.Month_day(0), date.Week_of_Day(0));
+    Fragment_meal1 fragment_meal1 = new Fragment_meal1(date.Date(1), date.Year(), date.Month_day(1), date.Week_of_Day(1));
+    Fragment_meal2 fragment_meal2 = new Fragment_meal2(date.Date(2), date.Year(), date.Month_day(2), date.Week_of_Day(2));
+    Fragment_meal3 fragment_meal3 = new Fragment_meal3(date.Date(3), date.Year(), date.Month_day(3), date.Week_of_Day(3));
+    Fragment_meal4 fragment_meal4 = new Fragment_meal4(date.Date(4), date.Year(), date.Month_day(4), date.Week_of_Day(4));
+    Fragment_meal5 fragment_meal5 = new Fragment_meal5(date.Date(5), date.Year(), date.Month_day(5), date.Week_of_Day(5));
+    Fragment_meal6 fragment_meal6 = new Fragment_meal6(date.Date(6), date.Year(), date.Month_day(6), date.Week_of_Day(6));
+    @Override   //어노테이션 메소드 수정하기 (Overriding)
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);                     //메인 액티비티에 ContentVIew
@@ -36,13 +43,7 @@ public class MainActivity extends AppCompatActivity {
         }       //Fragment 연결
         @Override
         public android.support.v4.app.Fragment getItem(int position) {
-            Fragment_meal fragment_meal = new Fragment_meal(date.Date(position), date.Year(), date.Month_day(position), date.Week_of_Day(position));
-            Fragment_meal1 fragment_meal1 = new Fragment_meal1(date.Date(position), date.Year(), date.Month_day(position), date.Week_of_Day(position));
-            Fragment_meal2 fragment_meal2 = new Fragment_meal2(date.Date(position), date.Year(), date.Month_day(position), date.Week_of_Day(position));
-            Fragment_meal3 fragment_meal3 = new Fragment_meal3(date.Date(position), date.Year(), date.Month_day(position), date.Week_of_Day(position));
-            Fragment_meal4 fragment_meal4 = new Fragment_meal4(date.Date(position), date.Year(), date.Month_day(position), date.Week_of_Day(position));
-            Fragment_meal5 fragment_meal5 = new Fragment_meal5(date.Date(position), date.Year(), date.Month_day(position), date.Week_of_Day(position));
-            Fragment_meal6 fragment_meal6 = new Fragment_meal6(date.Date(position), date.Year(), date.Month_day(position), date.Week_of_Day(position));
+
             //각 Fragment 객체 생성
             if(position<0 || Max_Page<=position)    //position 이 설정 범위 벗어날 시 null 값 return
                 return null;
