@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
     Fragment_meal4 fragment_meal4 = new Fragment_meal4(date.Date(4), date.Year(), date.Month_day(4), date.Week_of_Day(4));
     Fragment_meal5 fragment_meal5 = new Fragment_meal5(date.Date(5), date.Year(), date.Month_day(5), date.Week_of_Day(5));
     Fragment_meal6 fragment_meal6 = new Fragment_meal6(date.Date(6), date.Year(), date.Month_day(6), date.Week_of_Day(6));
+    //각 Fragment 객체 생성
+
     @Override   //어노테이션 메소드 수정하기 (Overriding)
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,22 +31,13 @@ public class MainActivity extends AppCompatActivity {
         vp.setAdapter(new adapter(getSupportFragmentManager()));    //Fragment 를 사용하기위한 Manager 활용
         vp.setCurrentItem(0);
     }
-    View.OnClickListener movePageListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v)
-        {
-            int tag = (int) v.getTag();                             //페이지 넘김 인식
-            vp.setCurrentItem(tag);
-        }
-    };
+
     private class adapter extends FragmentPagerAdapter {
         public adapter(FragmentManager fm) {
             super(fm);
         }       //Fragment 연결
         @Override
         public android.support.v4.app.Fragment getItem(int position) {
-
-            //각 Fragment 객체 생성
             if(position<0 || Max_Page<=position)    //position 이 설정 범위 벗어날 시 null 값 return
                 return null;
 
