@@ -9,15 +9,14 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    EditText idText, pwdText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        idText = (EditText) findViewById(R.id.ID);
-        pwdText = (EditText) findViewById(R.id.PWD);
-        Button LoginButton = (Button) findViewById(R.id.login);
+        final EditText idText = (EditText) findViewById(R.id.ID);
+        final EditText pwdText = (EditText) findViewById(R.id.PWD);
+        Button LoginButton = (Button) findViewById(R.id.logined);
 
         LoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -29,13 +28,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
     public void login(String id, String pwd){
-        if (id.equals(null) || pwd.equals(null)) {
-            Toast.makeText(MainActivity.this, "아이디나 비밀번호를 입력해주세요", Toast.LENGTH_LONG).show();
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
+        if (id.equals("") || pwd.equals("")) {
+            Toast.makeText(MainActivity.this, "아이디또는 비밀번호를 입력해주세요", Toast.LENGTH_LONG).show();
         } else {
-            Toast.makeText(MainActivity.this, "로그인 성공", Toast.LENGTH_LONG).show();
-            Intent intent = new Intent(this, SecondActivity.class);
+            Intent intent = new Intent(MainActivity.this, SecondActivity.class);
             startActivity(intent);
         }
     }
