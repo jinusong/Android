@@ -14,7 +14,7 @@ public class MyContentProvider extends ContentProvider {
     private MyDBHandler myDB;
 
     private static final String AUTHORITY =
-            "com.ebookfrenzy.database.provider.MyContentProvider";
+            "com.example.dsm2018.database.provider.MyContentProvider";
     private static final String PRODUCTS_TABLE = "products";
     public static final Uri CONTENT_URI =
             Uri.parse("content://" + AUTHORITY + "/" + PRODUCTS_TABLE);
