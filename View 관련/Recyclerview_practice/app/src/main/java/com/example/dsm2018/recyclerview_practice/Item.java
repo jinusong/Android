@@ -2,16 +2,18 @@ package com.example.dsm2018.recyclerview_practice;
 
 public class Item {
     public String name;
-    public String Information;
+    public int number;
 
-    public Item(String name, String Information) {
-        this.name = name;
-        this.Information = Information;
-    }
-    public String getName(){
+    public String getname() {
         return name;
     }
-    public String getInformation(){
-        return Information;
+
+    public int getnumber() {
+        return number;
+    }
+
+    public Item(String name, int number) {
+        this.name = name;
+        this.number = number;
     }
 }

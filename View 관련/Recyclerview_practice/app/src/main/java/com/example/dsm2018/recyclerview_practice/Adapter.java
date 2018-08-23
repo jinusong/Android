@@ -5,44 +5,43 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
+import java.util.List;
 
+public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
+    private final List<Item> itemList;
 
-public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
-    private  ArrayList<Item> Item;
-    private int itemLayout;
-    public Adapter(ArrayList<Item> Items, int itemLayout)
-    {
-        Item = Items;
-        this.itemLayout = itemLayout;
-    }
-    @Override
-    public ViewHolder onCreateViewHolder( ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(itemLayout,viewGroup,false);
-        return  new ViewHolder(view);
+    public Adapter(List<Item> itemList){
+        this.itemList = itemList;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        Item item = Item.get(i);
-        viewHolder.Name.setText(item.getName());
-        viewHolder.Information.setText(item.getInformation());
+    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+        View v = LayoutInflater.from(viewGroup.getContext())
+                .inflate(R.layout.view_item, viewGroup, false);
+        return new ViewHolder(v);
+    }
+
+    @Override
+    public void onBindViewHolder(ViewHolder viewHolder, int i) {
+        Item item = itemList.get(i);
+        viewHolder.
     }
 
     @Override
     public int getItemCount() {
-        return Item.size();
+        return 0;
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder{
-        public TextView Name;
-        public TextView Information;
-        public ViewHolder(View item){
-            super(item);
-            Name = (TextView) itemView.findViewById(R.id.name);
-            Information = (TextView) itemView.findViewById(R.id.information);
-        }
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        public TextView name;
+        public TextView number;
+
+        public ViewHolder(View itemView) {
+            super(itemView);
+            name = (TextView) itemView.findViewById(R.id.name);
+            number = (TextView) itemView.findViewById(R.id.number);
     }
 }
