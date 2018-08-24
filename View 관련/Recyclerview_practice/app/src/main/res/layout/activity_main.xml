@@ -11,11 +11,12 @@
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
-        android:layout_height="200dp">
+        android:layout_height="450dp">
     </android.support.v4.view.ViewPager>
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:id="@+id/recyclerView">
     </android.support.v7.widget.RecyclerView>
 </LinearLayout>
