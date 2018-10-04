@@ -16,3 +16,11 @@
 * Widget 관련
 * 기초 다지기
 * 기초 프로젝트
+
+## 기술 레포
+* [Retrofit2]
+* [Socket]
+
+
+[Retrofit2]: https://github.com/jinusong/Retrofit2
+[Socket]: https://github.com/jinusong/Android-Socket
