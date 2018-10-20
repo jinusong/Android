@@ -7,7 +7,7 @@
 ## 목차
 * Activity 관련
 * Android Database 관련
-* Android Service 관련
+* Other Tech
 * Animation 관련
 * Event 관련
 * Fragment 관련
